@@ -18,13 +18,20 @@ https://docs-rs-web-prod.infra.rust-lang.org/env_logger/latest/env_logger/index.
 
 ## Install
 
-simply run it with podman:
+use cargo:
+
+```shell
+cargo run --release
+```
+
+or simply run it with podman:
 
 ```shell
 podman build -t actrax_server .
 podman run --network actrax --name actrax_server -e "ACTRAX_SERVER_LOG=trace" -p 4444:4444 --replace actrax_server
 ```
 
+I tested it with podman you can use docker as well. (maybe)
 
 ## Modules
 

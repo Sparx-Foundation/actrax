@@ -21,6 +21,7 @@ pub(crate) struct ServerConfig {
 #[derive(Debug, Deserialize)]
 pub(crate) struct UserConfig {
     pub(crate) name: String,
+    #[allow(dead_code)]
     pub(crate) password: String,
 }
 

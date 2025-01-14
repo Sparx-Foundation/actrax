@@ -6,7 +6,6 @@ mod app_state;
 mod core;
 mod web;
 
-
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Claims {
     pub sub: i32,
@@ -20,7 +19,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     info!("Starting ACTRAX_SERVER...");
 
     let app = Arc::new(app_state::AppState::default().await);
-    
+
     println!("{}", app.config);
 
     web::web_main(app).await.expect("webserver startup failed");

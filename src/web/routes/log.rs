@@ -1,9 +1,9 @@
 use crate::core::log::LogLevel;
 
+use crate::app_state::AppState;
 use axum::{extract::State, http::StatusCode, Extension, Json};
 use serde::Deserialize;
 use std::sync::Arc;
-use crate::app_state::AppState;
 
 #[derive(Deserialize)]
 pub(crate) struct LogRequest {
@@ -30,8 +30,10 @@ pub(crate) async fn log_handler(
         Ok(_) => Ok(StatusCode::OK),
         Err(e) => {
             tracing::error!("Failed to log message. Error: {}", e);
-            Err((StatusCode::INTERNAL_SERVER_ERROR, "Failed to log message".to_string()))
+            Err((
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Failed to log message".to_string(),
+            ))
         }
     }
 }
-

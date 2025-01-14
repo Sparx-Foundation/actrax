@@ -79,7 +79,10 @@ impl Logging {
         user_id: i32,
         user_name: &str,
     ) -> Result<String, String> {
-        info!("Logging message: {} | user_id: {} | user_name {}", log_level, user_id, user_name);
+        info!(
+            "Logging message: {} | user_id: {} | user_name {}",
+            log_level, user_id, user_name
+        );
 
         let start = Instant::now();
 
@@ -100,9 +103,15 @@ impl Logging {
                     "{} | {} | user_id: {:?} | Time taken: {:.2?}",
                     log_level, msg, user_id, duration
                 );
-                
-                let event_msg = format!("log_level={}, msg={}, user_id={}, username={}", log_level, msg, user_id, user_name);
-                if let Err(e) = self.sender.send(("log_added".to_string(), event_msg.to_string())) {
+
+                let event_msg = format!(
+                    "log_level={}, msg={}, user_id={}, username={}",
+                    log_level, msg, user_id, user_name
+                );
+                if let Err(e) = self
+                    .sender
+                    .send(("log_added".to_string(), event_msg.to_string()))
+                {
                     error!("Failed to broadcast message: {}", e);
                 }
 

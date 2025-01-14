@@ -10,7 +10,7 @@ use tokio::sync::{Mutex, MutexGuard};
 pub struct TaskManager {
     tasks: Arc<Mutex<HashMap<u64, Task>>>,
 }
-
+#[allow(dead_code)]
 impl TaskManager {
     pub async fn new() -> Self {
         TaskManager {

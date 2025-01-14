@@ -1,10 +1,10 @@
 use crate::app_state::AppState;
+use crate::core::tasks::task::{OperationType, Task, TaskStatus};
 use axum::extract::State;
 use axum::http::StatusCode;
 use axum::{Extension, Json};
-use std::sync::Arc;
 use serde::Deserialize;
-use crate::core::tasks::task::{OperationType, Task, TaskStatus};
+use std::sync::Arc;
 
 pub(crate) async fn get_tasks(
     State(state): State<Arc<AppState>>,
@@ -33,12 +33,12 @@ pub struct CreateTaskRequest {
 /// The handler to add a task.
 pub(crate) async fn add_task(
     State(state): State<Arc<AppState>>,
-    Json(payload): Json<CreateTaskRequest>
+    Json(payload): Json<CreateTaskRequest>,
 ) -> Result<StatusCode, (StatusCode, String)> {
     let new_task = Task {
         id: rand::random::<u64>(),
         description: payload.description,
-        status: TaskStatus::Pending, 
+        status: TaskStatus::Pending,
         client_id: payload.client_id,
         operation: payload.operation,
     };

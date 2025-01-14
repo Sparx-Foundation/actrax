@@ -3,7 +3,12 @@ use sqlx::{PgPool, Row};
 pub async fn initialize_schema(pool: &PgPool) -> Result<(), sqlx::Error> {
     // TODO: fix this shit
 
-    sqlx::query(include_str!("../../../migrations/user/0001_client_table.sql")).execute(pool).await.map_err(|e| {
+    sqlx::query(include_str!(
+        "../../../migrations/user/0001_client_table.sql"
+    ))
+    .execute(pool)
+    .await
+    .map_err(|e| {
         sqlx::Error::from(std::io::Error::new(
             std::io::ErrorKind::InvalidData,
             format!("Failed to execute schema: {}", e),
@@ -13,14 +18,13 @@ pub async fn initialize_schema(pool: &PgPool) -> Result<(), sqlx::Error> {
     Ok(())
 }
 
-
 #[allow(unused)]
 pub async fn search_client(
     pool: &PgPool,
     uid: Option<&str>,
     id: Option<i32>,
     name: Option<&str>,
-    partial: bool
+    partial: bool,
 ) -> Result<Vec<sqlx::postgres::PgRow>, sqlx::Error> {
     let mut query = String::from("SELECT * FROM actrax_client WHERE 1=1");
 
@@ -51,7 +55,11 @@ pub async fn search_client(
 }
 
 #[allow(unused)]
-pub async fn create_client(pool: &PgPool, uid: &str, name: Option<&str>) -> Result<i32, sqlx::Error> {
+pub async fn create_client(
+    pool: &PgPool,
+    uid: &str,
+    name: Option<&str>,
+) -> Result<i32, sqlx::Error> {
     let row = sqlx::query(
         r#"
         INSERT INTO actrax_client (uid, name)
@@ -73,7 +81,7 @@ pub async fn update_client(
     pool: &PgPool,
     id: i32,
     new_uid: Option<&str>,
-    new_name: Option<&str>
+    new_name: Option<&str>,
 ) -> Result<(), sqlx::Error> {
     sqlx::query(
         r#"

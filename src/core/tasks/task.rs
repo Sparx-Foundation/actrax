@@ -1,7 +1,6 @@
 use rand::random;
 use serde::{Deserialize, Serialize};
 
-
 /// Represents the state of a task.
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub enum TaskStatus {
@@ -34,6 +33,7 @@ pub struct Task {
 
 impl Task {
     /// Creates a new task with a random numeric ID and a specified operation.
+    #[allow(dead_code)]
     pub fn new(client_id: i32, description: String, operation: OperationType) -> Self {
         let id = random::<u64>();
         Self {

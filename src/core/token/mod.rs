@@ -50,13 +50,12 @@ impl Token {
             sub: *sub,
         };
 
-       encode(
+        encode(
             &Header::default(),
             &claims,
             &EncodingKey::from_secret(self.secret.as_bytes()),
         )
         .unwrap()
-        
     }
 
     /// Generates a refresh token for a user and stores it in the database.

@@ -1,13 +1,13 @@
-use axum_extra::headers;
+use crate::app_state::AppState;
 use axum::extract::State;
 use axum::response::sse::Event;
 use axum::response::Sse;
+use axum_extra::headers;
 use axum_extra::TypedHeader;
 use futures::Stream;
 use std::convert::Infallible;
 use std::sync::Arc;
 use std::time::Duration;
-use crate::app_state::AppState;
 
 pub(crate) async fn log(
     State(state): State<Arc<AppState>>,

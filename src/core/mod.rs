@@ -1,7 +1,7 @@
-pub(crate) mod log;
 pub(crate) mod client;
-pub(crate) mod token;
+pub(crate) mod log;
 pub(crate) mod tasks;
+pub(crate) mod token;
 
 #[macro_export]
 macro_rules! init_tracing {

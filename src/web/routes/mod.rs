@@ -3,7 +3,8 @@ pub(crate) mod feeds;
 pub(crate) mod log;
 pub(crate) mod tasks;
 
-use crate::{Claims};
+use crate::app_state::AppState;
+use crate::Claims;
 use axum::body::Body;
 use axum::extract::State;
 use axum::http::StatusCode;
@@ -15,7 +16,6 @@ use jsonwebtoken::{decode, errors::ErrorKind, DecodingKey, Validation};
 use serde_json::json;
 use std::sync::Arc;
 use tracing::{error, trace};
-use crate::app_state::AppState;
 
 pub(crate) async fn client_middleware(
     State(state): State<Arc<AppState>>,

@@ -15,9 +15,12 @@ use tower_http::{
 };
 
 pub async fn web_main(core: Arc<AppState>) -> Result<(), Box<dyn std::error::Error>> {
-    let listener = tokio::net::TcpListener::bind(format!("{}:{}", &core.config.server.host ,&core.config.server.port))
-        .await
-        .unwrap();
+    let listener = tokio::net::TcpListener::bind(format!(
+        "{}:{}",
+        &core.config.server.host, &core.config.server.port
+    ))
+    .await
+    .unwrap();
 
     tracing::info!("Server Listening on:  {}", &core.config.server.port);
 

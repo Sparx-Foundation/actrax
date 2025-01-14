@@ -1,3 +1,4 @@
+use crate::app_state::AppState;
 use axum::extract::State;
 use axum::http::StatusCode;
 use axum::response::IntoResponse;
@@ -5,7 +6,6 @@ use axum::Json;
 use serde::Deserialize;
 use serde_json::json;
 use std::sync::Arc;
-use crate::app_state::AppState;
 
 #[derive(Deserialize)]
 pub(crate) struct CreateClientRequest {
