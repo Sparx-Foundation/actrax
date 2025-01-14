@@ -1,0 +1,25 @@
+[package]
+name = "actrax"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "0.7.7", features = ["tokio", "tracing", "ws", "macros"] }
+axum-extra = { version = "0.9.5", features = ["typed-header"] }
+tower-http = { version = "0.6.1", features = ["tracing", "tokio", "timeout", "cors", "trace"] }
+sqlx = { version = "0.8.1", features = ["postgres", "runtime-tokio-rustls"] }
+
+serde = { version = "1.0.214", features = ["derive"] }
+
+tokio = { version = "1.41.1", features = ["rt", "rt-multi-thread", "macros"] }
+
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+serde_json = "1.0.132"
+
+jsonwebtoken = "9.3.0"
+async-stream = "0.3.6"
+futures = "0.3.31"
+uuid = { version = "1.11.0", features = ["v4"] }
+rand = "0.8.5"
+toml = "0.7"

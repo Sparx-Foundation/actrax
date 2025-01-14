@@ -1,0 +1,9 @@
+**/target
+.gitignore
+LICENSE-AGPLv3
+.git
+Dockerfile
+.idea
+/cli
+/docs
+**.md
