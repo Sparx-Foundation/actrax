@@ -7,7 +7,7 @@ edition = "2021"
 axum = { version = "0.7.7", features = ["tokio", "tracing", "ws", "macros"] }
 axum-extra = { version = "0.10.0", features = ["typed-header"] }
 tower-http = { version = "0.6.2", features = ["tracing", "tokio", "timeout", "cors", "trace"] }
-sqlx = { version = "0.8.1", features = ["postgres", "runtime-tokio-rustls"] }
+sqlx = { version = "0.8.3", features = ["postgres", "runtime-tokio-rustls"] }
 
 serde = { version = "1.0.218", features = ["derive"] }
 
