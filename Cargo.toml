@@ -4,14 +4,14 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-axum = { version = "0.8.1", features = ["tokio", "tracing", "ws", "macros"] }
-axum-extra = { version = "0.10.0", features = ["typed-header"] }
+axum = { version = "0.8.3", features = ["tokio", "tracing", "ws", "macros"] }
+axum-extra = { version = "0.10.1", features = ["typed-header"] }
 tower-http = { version = "0.6.2", features = ["tracing", "tokio", "timeout", "cors", "trace"] }
-sqlx = { version = "0.8.3", features = ["postgres", "runtime-tokio-rustls"] }
+sqlx = { version = "0.8.4", features = ["postgres", "runtime-tokio-rustls"] }
 
 serde = { version = "1.0.219", features = ["derive"] }
 
-tokio = { version = "1.44.0", features = ["rt", "rt-multi-thread", "macros"] }
+tokio = { version = "1.44.2", features = ["rt", "rt-multi-thread", "macros"] }
 
 tracing = "0.1.41"
 tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
@@ -20,6 +20,6 @@ serde_json = "1.0.140"
 jsonwebtoken = "9.3.1"
 async-stream = "0.3.6"
 futures = "0.3.31"
-uuid = { version = "1.15.1", features = ["v4"] }
+uuid = { version = "1.16.0", features = ["v4"] }
 rand = "0.9.0"
 toml = "0.8"
