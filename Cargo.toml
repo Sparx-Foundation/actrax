@@ -21,5 +21,5 @@ jsonwebtoken = "10.3.0"
 async-stream = "0.3.6"
 futures = "0.3.32"
 uuid = { version = "1.16.0", features = ["v4"] }
-rand = "0.9.3"
+rand = "0.9.4"
 toml = "1.0"
